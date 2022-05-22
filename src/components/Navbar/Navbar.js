@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
         <div className="w-4/6 flex items-center justify-center">
           <span className="font-sans font-bold text-white text-lg select-none">
-            {(location.pathname === "/DepositToCart" && "واریز به حساب") || (location.pathname === "/" && "صورت حساب") || (location.pathname === "/RemoveFromCart" && "برداشت از حساب")}
+            {(location.pathname === "/DepositToCart" && "واریز به حساب") || (location.pathname === "/" && "صورت حساب") || (location.pathname === "/RemoveFromCart" && "برداشت از حساب") || (location.pathname === "/Charts" && "خرج و مخارج")}
           </span>
         </div>
         <div className="w-1/6 flex items-center justify-end">
