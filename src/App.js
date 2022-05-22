@@ -6,7 +6,7 @@ import RemoveFromCart from "./pages/RemoveFromCart"
 
 const App = () => {
   return (
-    <div className="bg-blue-500 h-full">
+    <div className="h-full">
       <Routes>
         <Route path="/" element={<Bills />} />
         <Route path="/DepositToCart" element={<DepositPage />} />

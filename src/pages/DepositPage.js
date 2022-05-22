@@ -1,6 +1,8 @@
+import Form from "../components/Form/Form";
+
 const DepositPage = () => {
   return (
-    <span>صفحه واریز</span>
+    <Form nameButton="واریز" type="deposit" />
   );
 }
 

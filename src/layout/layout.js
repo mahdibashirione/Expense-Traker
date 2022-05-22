@@ -1,14 +1,16 @@
 import Navbar from "../components/Navbar/Navbar";
 import InventoryProvider from "../context/InventoryProvider";
-
+import DepositContext from "../context/deposit&removeProvider"
 
 const Layout = (props) => {
   return (
     <>
-      <InventoryProvider>
-        <Navbar />
-        {props.children}
-      </InventoryProvider>
+      <DepositContext>
+        <InventoryProvider>
+          <Navbar />
+          {props.children}
+        </InventoryProvider>
+      </DepositContext>
     </>
   );
 }

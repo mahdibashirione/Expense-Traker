@@ -1,6 +1,8 @@
+import Form from "../components/Form/Form";
+
 const RemoveFromCart = () => {
   return (
-    <span>صفحه برداشت از کارت</span>
+    <Form nameButton="برداشت" type="remove" />
   );
 }
 
