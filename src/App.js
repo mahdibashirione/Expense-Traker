@@ -6,14 +6,14 @@ import RemoveFromCart from "./pages/RemoveFromCart"
 
 const App = () => {
   return (
-    <div className="h-full">
+    <main className="h-full">
       <Routes>
         <Route path="/" element={<Bills />} />
         <Route path="/DepositToCart" element={<DepositPage />} />
         <Route path="/Charts" element={<Charts />} />
         <Route path="/RemoveFromCart" element={<RemoveFromCart />} />
       </Routes>
-    </div>
+    </main>
   );
 }
 

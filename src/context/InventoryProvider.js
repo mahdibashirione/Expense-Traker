@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const InventoryState = React.createContext()
 const InventoryDispatch = React.createContext()
@@ -20,15 +20,7 @@ const InventoryProvider = (props) => {
 
 
 export const useInventory = () => React.useContext(InventoryState)
-export const useInventoryActions = () => {
-  const stateInventory = useInventory()
-  const setStateInventory = React.useContext(InventoryDispatch)
+export const useInventoryActions = () => React.useContext(InventoryDispatch)
 
-  const deposit = () => {
-    setStateInventory((prevState) => prevState + 100000)
-  }
-
-  return { deposit }
-}
 
 export default InventoryProvider;

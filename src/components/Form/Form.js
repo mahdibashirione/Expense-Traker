@@ -8,7 +8,7 @@ const Form = ({ nameButton, type }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    depositActions.addDepositToCart(value, type)
+    depositActions.addDepositToCart(Number(value), type)
     setValue('')
   }
 

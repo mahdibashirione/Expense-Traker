@@ -1,6 +1,6 @@
 const Transactions = ({ type, time, value, inType }) => {
   return (
-    <li className="w-full py-2 flex gap-x-2 justify-between">
+    <li className="w-full py-2 flex gap-x-2 justify-between nth-child2 px-2 rounded-lg">
       <div className="w-10 h-10 bg-zinc-300 rounded-full flex items-center justify-center"></div>
       <div>
         <span className="text-md font-sans select-none">{type}</span>
