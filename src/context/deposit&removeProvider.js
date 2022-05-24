@@ -78,12 +78,23 @@ export const useDepositActions = () => {
     localStorage.setItem("Transactions", JSON.stringify(value))
   }
 
+  const removeHandler = (id) => {
+    const isRemoveTransaction = window.confirm('ایا میخواهید تراکنش را حذف کنید ؟')
+    if (isRemoveTransaction) {
+      const filterTransaction = depositState.filter(transaction => transaction.id !== id)
+      setDeposit(filterTransaction)
+      if (depositState.length == 1) {
+        localStorage.clear("Transactions")
+      }
+    }
+  }
+
   const split = (n) => {
     const listGroup = n.toString().match(/.{2,3}(?=..)|.+/g);
     return listGroup.join(',')
   }
 
-  return { setDeposit, split, saveToLocalStorage, addDepositToCart, getTransactionDeposit, getTransactionRemove }
+  return { setDeposit, removeHandler, split, saveToLocalStorage, addDepositToCart, getTransactionDeposit, getTransactionRemove }
 }
 
 export default DepositContext;

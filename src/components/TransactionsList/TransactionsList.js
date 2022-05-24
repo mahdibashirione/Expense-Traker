@@ -14,7 +14,7 @@ const TransactionsList = () => {
         <ul className="w-full h-full overflow-y-scroll">
           {!depositState.length && <span className="w-full block text-center font-sans text-lg mt-4 text-zinc-500">تراکنشی وجود ندارد</span>}
           {depositState.map(item => {
-            return <Transactions type={item.type} time={item.time} value={item.value} inType={item.type} />
+            return <Transactions id={item.id} type={item.type} time={item.time} value={item.value} inType={item.type} />
           })}
         </ul>
       </div>
