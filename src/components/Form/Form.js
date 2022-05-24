@@ -1,16 +1,31 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDepositActions } from "../../context/deposit&removeProvider";
 
 const Form = ({ nameButton, type }) => {
+
+  let location = useNavigate()
 
   const [value, setValue] = useState()
   const depositActions = useDepositActions()
 
   const submitHandler = (e) => {
+
+    if (!value.length) {
+      alert('لطفا فیلد را پر کنید')
+      return false;
+    } else if (isNaN(Number(value))) {
+      alert('لطفا مقدار را به عدد وارد کنید')
+      setValue('')
+      return false;
+    }
+
     e.preventDefault()
     depositActions.addDepositToCart(Number(value), type)
     setValue('')
+    location("/")
   }
+
 
   return (
     <form className="w-full flex flex-col items-start p-4">

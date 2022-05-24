@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { useInventoryActions } from "./InventoryProvider";
 
+
 const depositState = React.createContext()
 const depositDispatch = React.createContext()
 
 const DepositContext = ({ children }) => {
 
   const [deposit, setDeposit] = React.useState([])
+
+
 
 
   return (
@@ -24,13 +27,7 @@ export const useDeposit = () => React.useContext(depositState)
 export const useDepositActions = () => {
   const depositState = useDeposit()
   const setDeposit = React.useContext(depositDispatch)
-
   const inventoryAction = useInventoryActions()
-
-  useEffect(() => {
-    getTransactionDeposit()
-    getTransactionRemove()
-  }, [depositState])
 
   const getDateAndTime = () => {
     const date = new Date()
@@ -57,7 +54,6 @@ export const useDepositActions = () => {
     if (depositState.length) {
       const allDeposit = depositState.filter(element => element.type === "deposit");
       const totalDeposit = allDeposit.reduce((acc, cur) => acc + cur.value, 0)
-      console.log(totalDeposit)
       inventoryAction(totalDeposit)
     }
   }
@@ -78,7 +74,16 @@ export const useDepositActions = () => {
     }
   }
 
-  return { addDepositToCart }
+  const saveToLocalStorage = (value) => {
+    localStorage.setItem("Transactions", JSON.stringify(value))
+  }
+
+  const split = (n) => {
+    const listGroup = n.toString().match(/.{2,3}(?=..)|.+/g);
+    return listGroup.join(',')
+  }
+
+  return { setDeposit, split, saveToLocalStorage, addDepositToCart, getTransactionDeposit, getTransactionRemove }
 }
 
 export default DepositContext;
