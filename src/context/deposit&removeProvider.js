@@ -41,12 +41,13 @@ export const useDepositActions = () => {
     return dateAndTime;
   }
 
-  const addDepositToCart = (value, type) => {
+  const addDepositToCart = (value, type, reason) => {
     setDeposit([...depositState, {
       id: Math.floor(Math.random() * 1000),
       value: value,
       time: getDateAndTime(),
-      type: type
+      type: type,
+      reason: reason,
     }])
   }
 
@@ -90,8 +91,15 @@ export const useDepositActions = () => {
   }
 
   const split = (n) => {
-    const listGroup = n.toString().match(/.{2,3}(?=..)|.+/g);
-    return listGroup.join(',')
+    n += '';
+    n = n.replace(',', '');
+    let x = n.split('.');
+    let y = x[0];
+    let z = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y))
+      y = y.replace(rgx, '$1' + ',' + '$2');
+    return y + z;
   }
 
   return { setDeposit, removeHandler, split, saveToLocalStorage, addDepositToCart, getTransactionDeposit, getTransactionRemove }

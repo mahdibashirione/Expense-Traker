@@ -7,7 +7,7 @@ import InfoPage from "./pages/InfoPage"
 
 const App = () => {
   return (
-    <main className="h-full">
+    <main className="h-full flex flex-col items-center">
       <Routes>
         <Route path="/" element={<Bills />} />
         <Route path="/DepositToCart" element={<DepositPage />} />

@@ -2,6 +2,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  dark: false,
   theme: {
     extend: {
       container: {
@@ -11,4 +12,5 @@ module.exports = {
   },
   plugins: [],
   mode: 'jit',
+
 }

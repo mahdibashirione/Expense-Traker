@@ -1,6 +1,6 @@
 import { useDepositActions } from "../../context/deposit&removeProvider";
 import { BiTrashAlt } from "react-icons/bi"
-const Transactions = ({ type, time, value, inType, id }) => {
+const Transactions = ({ type, time, value, inType, id, reason }) => {
   const depositActions = useDepositActions()
 
   return (
@@ -9,7 +9,7 @@ const Transactions = ({ type, time, value, inType, id }) => {
         <BiTrashAlt className="text-red-600 text-xl" />
       </div>
       <div>
-        <span className="text-md font-sans select-none">{(type === "deposit" && "واریز") || (type === "remove" && "برداشت")}</span>
+        <span className="text-md font-sans select-none">{reason}</span>
         <p className="text-sm font-sans select-none text-zinc-500">{time}</p>
       </div>
       <div className="h-10 flex justify-center items-center">
