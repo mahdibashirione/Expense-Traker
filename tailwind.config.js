@@ -2,7 +2,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  dark: false,
+  darkMode: 'class',
   theme: {
     extend: {
       container: {
@@ -10,7 +10,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
   mode: 'jit',
 
 }
