@@ -1,8 +1,8 @@
+import Info from "../components/Info/Info";
+
 const InfoPage = () => {
   return (
-    <span>
-      به زودی
-    </span>
+    <Info />
   );
 }
 
