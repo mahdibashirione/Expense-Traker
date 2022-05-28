@@ -1,8 +1,8 @@
-import Accordion from "../components/accordion/Accordion";
+import SettingAccordion from "../components/SettingAccordion/SettingAccordion";
 
 const SettingsPage = () => {
   return (
-    <Accordion />
+    <SettingAccordion />
   );
 }
 

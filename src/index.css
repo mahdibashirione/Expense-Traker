@@ -6,4 +6,7 @@
   .nth-child2:nth-child(2n + 0) {
     background: #eee;
   }
+  .nth-child-dark2:nth-child(2n + 0) {
+    background: #18181b;
+  }
 }

@@ -14,14 +14,14 @@ const Navbar = () => {
     { path: "/Settings", label: "Settings" },
     { path: "/Charts", label: "Analyze" },
     { path: "/", label: "Bills" },
-    { path: "/RemoveFromCart", label: "withdrawal" },
+    { path: "/RemoveFromCart", label: "Withdrawal" },
     { path: "/DepositToCart", label: "Deposit" },
     { path: "/Info", label: "Info" },
   ])
   const inLabel = label.find(item => item.path == location.pathname)
 
   return (
-    <header className="w-full bg-blue-500 sticky top-0 right-0 z-20">
+    <header className="w-full bg-blue-500 dark:bg-zinc-800 dark:shadow-md sticky top-0 right-0 z-20">
       <nav className="w-full container flex py-4 px-4">
         <div className="w-1/6 flex items-center justify-start">
           {location.pathname === "/" ? <Link to="/Settings"><FiSettings className="text-white text-2xl cursor-pointer" /></Link> : <Link to="/">
