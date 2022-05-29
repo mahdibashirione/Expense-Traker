@@ -43,7 +43,7 @@ const Form = ({ nameButton, type }) => {
         </span>
       </span>}
       <div class={`relative z-0 w-full mb-6  group ${type === "remove" ? "mt-10" : "mt-4"}`}>
-        <input inputMode="numeric" onChange={(e) => setValue(e.target.value)} class="block text-slate-800 py-4 px-2 w-full text-lg bg-transparent border border-gray-300 appearance-none rounded-lg dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <input inputMode="numeric" onChange={(e) => setValue(e.target.value)} class="dark:text-white block text-slate-800 py-4 px-2 w-full text-lg bg-transparent border border-gray-300 appearance-none rounded-lg dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label class="peer-focus:font-medium absolute text-md text-gray-500 mr-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-90 top-2 z-10 origin-[0] peer-focus:right-0 bg-white dark:bg-zinc-800 peer-focus:mr-4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-09 peer-focus:-translate-y-6 ">
           مقدار
         </label>
@@ -53,7 +53,7 @@ const Form = ({ nameButton, type }) => {
         </span>
       </div>
       <div class="relative z-0 w-full mb-6 group">
-        <input onChange={(e) => setReason(e.target.value)} value={reason} class="block text-slate-800 py-4 px-2 w-full text-lg bg-transparent border border-gray-300 appearance-none rounded-lg dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <input onChange={(e) => setReason(e.target.value)} value={reason} class="dark:text-white block text-slate-800 py-4 px-2 w-full text-lg bg-transparent border border-gray-300 appearance-none rounded-lg dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label class="peer-focus:font-medium absolute text-md text-gray-500 mr-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-90 top-2 z-10 origin-[0] peer-focus:right-0 bg-white dark:bg-zinc-800 peer-focus:mr-4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-09 peer-focus:-translate-y-6">
           شرح
         </label>

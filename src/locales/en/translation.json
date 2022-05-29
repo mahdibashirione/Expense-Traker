@@ -26,5 +26,11 @@
   "Deposit To Cart":"Deposit To Cart",
   "Deposit":"Deposit",
   "Toman":"Toman",
-  "Balance":"Bills"
+  "Balance":"Balance",
+  "Are you delete transactions ?":"Are you delete transactions ?",
+  "The transaction was deleted":"The transaction was deleted",
+  "Ok":"Ok",
+  "Cancel":"Cancel",
+  "Spending":"Spending",
+  "Income":"Income"
 }

@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useInventoryActions } from "./InventoryProvider";
+import swal from "sweetalert"
+import { useTranslation } from "react-i18next";
 
 
 const depositState = React.createContext()
@@ -25,6 +27,7 @@ const DepositContext = ({ children }) => {
 
 export const useDeposit = () => React.useContext(depositState)
 export const useDepositActions = () => {
+  const [t, i18n] = useTranslation()
   const depositState = useDeposit()
   const setDeposit = React.useContext(depositDispatch)
   const inventoryAction = useInventoryActions()
@@ -80,14 +83,25 @@ export const useDepositActions = () => {
   }
 
   const removeHandler = (id) => {
-    const isRemoveTransaction = window.confirm('ایا میخواهید تراکنش را حذف کنید ؟')
-    if (isRemoveTransaction) {
-      const filterTransaction = depositState.filter(transaction => transaction.id !== id)
-      setDeposit(filterTransaction)
-      if (depositState.length == 1) {
-        localStorage.clear("Transactions")
-      }
-    }
+    swal({
+      title: t("Are you delete transactions ?"),
+      icon: "warning",
+      buttons: [t("Cancel"), t("Yes")],
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          const filterTransaction = depositState.filter(transaction => transaction.id !== id)
+          setDeposit(filterTransaction)
+          if (depositState.length == 1) {
+            localStorage.clear("Transactions")
+          }
+          swal(t("The transaction was deleted"), {
+            icon: "success",
+            buttons: t('Ok')
+          });
+        }
+      });
   }
 
   const split = (n) => {

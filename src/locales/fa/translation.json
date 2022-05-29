@@ -27,5 +27,11 @@
   "Deposit":"واریز",
   "Info":"درباره ما",
   "Toman":"تومان",
-  "Balance":"موجودی"
+  "Balance":"موجودی",
+  "Are you delete transactions ?":"ایا میخواهید تراکنش را حذف کنید ؟",
+  "The transaction was deleted":"تراکنش حذف شد",
+  "Ok":"باشه",
+  "Cancel":"لغو",
+  "Spending":"خرج ها",
+  "Income":"درآمدها"
 }
