@@ -36,21 +36,37 @@ const Analyze = () => {
   const getTransactionsDeposit = () => {
     const allDeposit = depositState.filter(element => element.type === "deposit");
     const totalDeposit = allDeposit.reduce((acc, cur) => acc + cur.value, 0)
-    setData({ value: totalDeposit, color: "#059669", title: "Deposit" })
+    setData([{
+      value: totalDeposit, color: "#22C55E",
+      title: "Deposit", colorLabel: "bg-green-500"
+    },
+    {
+      value: 0, color: "#E11D48", title: "Withdrawal",
+      colorLabel: "bg-rose-600"
+    }])
+    setListTransaction(allDeposit)
   }
 
   const getTransactionsRemove = () => {
     const allRemove = depositState.filter(element => element.type === "remove");
     const totalRemove = allRemove.reduce((acc, cur) => acc + cur.value, 0)
-    setData({ value: totalRemove, color: "#BE123C", title: "Withdrawal" })
+    setData([{
+      value: totalRemove, color: "#E11D48",
+      title: "Withdrawal", colorLabel: "bg-rose-600"
+    },
+    {
+      value: 0, color: "#22C55E",
+      title: "Deposit", colorLabel: "bg-green-500"
+    }])
+    setListTransaction(allRemove)
   }
 
   return (
     <div className="w-full max-w-[800px] px-4 flex flex-col items-center gap-y-6">
-      <div className="dark:border-zinc-900 flex justify-center items-center p-1 mt-6 border-2 rounded-full">
-        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="Spending" className={`dark:text-gray-400 select-none cursor-pointer px-4 py-2  text-slate-800 ${selection === "Spending" ? "bg-blue-500 dark:bg-blue-500 dark:text-white" : ""} rounded-full`}>{t("Spending")}</span>
-        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="All" className={`dark:text-gray-400 select-none cursor-pointer px-4 py-2 text-slate-800 ${selection === "All" ? "bg-blue-500 dark:text-white" : ""} rounded-full`}>{t("All")}</span>
-        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="Income" className={`dark:text-gray-400 select-none cursor-pointer px-4 py-2  text-slate-800 ${selection === "Income" ? "bg-blue-500 dark:bg-blue-500 dark:text-white" : ""} rounded-full`}>{t("Income")}</span>
+      <div className="flex justify-center items-center p-1 mt-6 border-2 rounded-full dark:border-blue-500">
+        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="Spending" className={`dark:text-white select-none cursor-pointer px-4 py-2  text-slate-800 ${selection === "Spending" ? "bg-blue-500 dark:bg-blue-500 text-white" : ""} rounded-full`}>{t("Spending")}</span>
+        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="All" className={`dark:text-white select-none cursor-pointer px-4 py-2 text-slate-800 ${selection === "All" ? "bg-blue-500 text-white" : ""} rounded-full`}>{t("All")}</span>
+        <span onClick={(e) => setSelection(e.target.dataset.value)} data-value="Income" className={`dark:text-white select-none cursor-pointer px-4 py-2  text-slate-800 ${selection === "Income" ? "bg-blue-500 dark:bg-blue-500 text-white" : ""} rounded-full`}>{t("Income")}</span>
       </div>
       <div className="dark:border-zinc-900 dark:border-2 w-full border rounded-lg h-[400px] flex flex-col items-center justify-center">
         <PieChart
@@ -64,7 +80,7 @@ const Analyze = () => {
           labelPosition={50}
           lengthAngle={360}
           lineWidth={40}
-          paddingAngle={2}
+          paddingAngle={1}
           radius={50}
           rounded={0}
           startAngle={25}
@@ -81,8 +97,11 @@ const Analyze = () => {
           }
         </div>
       </div>
-      <div className="dark:border-zinc-900 dark:border-2 w-full mb-10 rounded-lg flex flex-col items-center justify-center py-6 px-2">
-        {listTransaction.length &&
+      <div className="dark:border-zinc-900 border dark:border-2 w-full mb-10 rounded-lg flex flex-col items-center justify-center py-6 px-2">
+        {!listTransaction.length && <span className="w-full block text-center font-sans text-lg mt-4 text-zinc-500">
+          {t("There is no transaction !")}
+        </span>}
+        {listTransaction &&
           listTransaction.map(item => {
             return (
               <Transactions reason={item.reason} id={item.id} time={item.time} value={item.value} inType={item.type} />

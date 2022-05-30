@@ -32,5 +32,7 @@
   "Ok":"Ok",
   "Cancel":"Cancel",
   "Spending":"Spending",
-  "Income":"Income"
+  "Income":"Income",
+  "Insufficient inventory !":"Insufficient inventory !",
+  "There is no transaction !":"There is no transaction !"
 }

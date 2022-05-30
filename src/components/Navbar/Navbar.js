@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full bg-blue-500 dark:bg-zinc-800 dark:shadow-md sticky top-0 right-0 z-20">
-      <nav className="w-full container flex py-4 px-4">
+      <nav className="w-full container flex py-5 px-4">
         <div className="w-1/6 flex items-center justify-start">
           {location.pathname === "/" ? <Link to="/Settings"><FiSettings className="text-white text-2xl cursor-pointer" /></Link> : <Link to="/">
             <BiChevronRight className="text-white text-3xl cursor-pointer" />

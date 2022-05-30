@@ -34,7 +34,7 @@ const Inventory = () => {
 
   return (
     <section className="w-full py-6 bg-blue-500 dark:bg-zinc-800 ">
-      <div className="w-full max-w-[900px] container flex pb-4 px-4 flex-col justify-start items-center">
+      <div className="w-full max-w-[900px] container flex pb-8 pt-2 px-4 flex-col justify-start items-center">
         <div className="flex flex-col items-center my-8">
           <p className="text-white font-bold font-sans text-xl select-none">
             {!depositState.length ? "0" : depositActions.split(stateInventory)} {t("Toman")}

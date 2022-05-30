@@ -9,7 +9,7 @@ const Transactions = ({ time, value, inType, id, reason }) => {
 
   return (
     <li className="w-full py-2 flex gap-x-2 items-center justify-between nth-child2 dark:nth-child-dark2 px-2 rounded-lg">
-      {location.pathname === "" &&
+      {location.pathname === "/" &&
         <div onClick={() => depositActions.removeHandler(id)} className=" w-8 h-8 border-2 border-red-600 cursor-pointer hover:bg-red-300 dark:hover:bg-zinc-900 rounded-lg flex items-center justify-center">
           <BiTrashAlt className="text-red-600 text-xl" />
         </div>

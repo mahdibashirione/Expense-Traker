@@ -33,5 +33,7 @@
   "Ok":"باشه",
   "Cancel":"لغو",
   "Spending":"خرج ها",
-  "Income":"درآمدها"
+  "Income":"درآمدها",
+  "Insufficient inventory !":"! موجودی ناکافی",
+  "There is no transaction !":"! تراکنشی وجود ندارد"
 }

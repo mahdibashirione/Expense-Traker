@@ -36,14 +36,14 @@ const SettingAccordion = () => {
       <Accordion className="rounded-lg border dark:border-2 dark:border-zinc-900 overflow-hidden">
         <AccordionItem>
           <AccordionItemHeading>
-            <AccordionItemButton className="bg-zinc-100 dark:bg-zinc-900 dark:text-white py-4 px-2 rounded-t-lg flex items-center justify-between">
+            <AccordionItemButton className="bg-zinc-100 dark:bg-zinc-900 dark:text-white py-6 px-3 rounded-t-lg flex items-center justify-between">
               {t("Language")}
               <BiChevronDown className="text-2xl" />
             </AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
-            <div class="flex flex-col gap-y-6">
-              <span onClick={e => setLang(e.target.dataset.lang)} data-lang="en" className="dark:text-white flex items-center cursor-pointer select-none font-sans  text-gray-700">{t("English")}
+            <div class="flex flex-col gap-y-8">
+              <span onClick={e => setLang(e.target.dataset.lang)} data-lang="en" className="mt-2 dark:text-white flex items-center cursor-pointer select-none font-sans  text-gray-700">{t("English")}
                 {lang === "en" && <BiCheck className="text-xl mr-2" />}
               </span>
               <span onClick={e => setLang(e.target.dataset.lang)} data-lang="fa" className="dark:text-white flex items-center cursor-pointer select-none font-sans  text-gray-700">{t("فارسی")}
@@ -54,14 +54,14 @@ const SettingAccordion = () => {
         </AccordionItem>
         <AccordionItem>
           <AccordionItemHeading>
-            <AccordionItemButton className="bg-zinc-100 dark:bg-zinc-900 dark:text-white py-4 px-2 flex items-center justify-between">
+            <AccordionItemButton className="bg-zinc-100 dark:bg-zinc-900 dark:text-white py-6 px-3 flex items-center justify-between">
               {t("Theme")}
               <BiChevronDown className="text-2xl" />
             </AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
-            <div class="flex flex-col gap-y-6">
-              <span onClick={e => themeActions.setTheme(e.target.dataset.theme)} data-theme="dark" className="dark:text-white flex items-center cursor-pointer select-none font-sans  text-gray-700">
+            <div class="flex flex-col gap-y-8">
+              <span onClick={e => themeActions.setTheme(e.target.dataset.theme)} data-theme="dark" className="mt-2 dark:text-white flex items-center cursor-pointer select-none font-sans  text-gray-700">
                 {t("Dark")}
                 {theme === "dark" && <BiCheck className="text-xl mr-2" />}
               </span>

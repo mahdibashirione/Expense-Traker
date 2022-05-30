@@ -2,36 +2,41 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDepositActions } from "../../context/deposit&removeProvider";
 import { useInventory } from "../../context/InventoryProvider"
+import { useTranslation } from "react-i18next";
+import swal from "sweetalert";
+
 const Form = ({ nameButton, type }) => {
 
-  let location = useNavigate()
 
+  let location = useNavigate()
   const [value, setValue] = useState(0)
   const [reason, setReason] = useState()
   const depositActions = useDepositActions()
   const inventory = useInventory()
+  const [t, i18n] = useTranslation()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if ((!value.length) || (!reason.length)) {
-      alert('لطفا فیلد را پر کنید')
-      return false;
-    } else if (isNaN(Number(value))) {
-      alert('لطفا مقدار را به عدد وارد کنید')
-      setValue('')
-      return false;
+    if (type === "remove") {
+      if (inventory > value) {
+        depositActions.addDepositToCart(Number(value), type, reason)
+        setValue('')
+        setReason('')
+        location("/")
+      } else {
+        swal({
+          icon: "warning",
+          text: t("Insufficient inventory !"),
+          buttons: t("Ok")
+        })
+      }
+      return;
     }
-    if ((type === "remove") && (inventory < value)) {
-      alert("موجودی ناکافی")
-      return false
-    }
-
     depositActions.addDepositToCart(Number(value), type, reason)
     setValue('')
     setReason('')
     location("/")
   }
-
 
   return (
     <form onSubmit={submitHandler} className="w-full flex flex-col items-start p-4 max-w-[450px] justify-center">
@@ -62,5 +67,4 @@ const Form = ({ nameButton, type }) => {
     </form>
   );
 }
-
 export default Form;
